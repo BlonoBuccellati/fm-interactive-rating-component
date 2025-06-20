@@ -1,0 +1,68 @@
+@utility typo-1 {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-bold);
+  font-size: 28px;
+  /* mobile -> tablet */
+  line-height: 35px;
+  letter-spacing: 0;
+}
+
+@utility typo-2 {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-bold);
+  font-size: 24px;
+  /* mobile -> tablet */
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+@utility typo-3 {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-bold);
+  font-size: 16px;
+  /* mobile -> tablet */
+  line-height: 24px;
+  letter-spacing: 0.2px;
+}
+
+@utility typo-4-bold {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-bold);
+  font-size: 15px;
+  /* mobile -> tablet */
+  line-height: 19px;
+  letter-spacing: 2px;
+}
+
+@utility typo-4-regular {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-regular);
+  font-size: 15px;
+  /* mobile -> tablet */
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+@utility typo-5-bold {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 1.87px;
+}
+
+@utility typo-5-semibold {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-semibold);
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.87px;
+}
+
+@utility typo-5-regular {
+  font-family: var(--font-overpass);
+  font-weight: var(--font-weight-regular);
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0;
+}
