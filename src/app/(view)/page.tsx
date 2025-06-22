@@ -1,3 +1,5 @@
+import InteractiveRatingPage from "@/screens/interactive-rating-form/ui/inreractive-rating-page";
+
 export default function Home() {
-  return <div className="typo-2 bg-green-600">tesfdsafdasf</div>;
+  return <InteractiveRatingPage />;
 }
