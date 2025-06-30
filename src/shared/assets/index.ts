@@ -1,3 +1,3 @@
 import iconStar from "./images/icon-star.svg";
-
-export { iconStar };
+import iconThankYou from "./images/illustration-thank-you.svg";
+export { iconStar, iconThankYou };

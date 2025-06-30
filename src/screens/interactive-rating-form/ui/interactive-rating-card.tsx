@@ -1,7 +1,8 @@
+"use client";
+
 import { Button } from "@/shared/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -10,18 +11,57 @@ import {
 import RateSelector from "@/shared/ui/rate-selector";
 import StarIcon from "@/shared/ui/star-icon";
 
-const RateSelectorList = () => {
+import { useRatingForm } from "../hooks/use-rating-form";
+
+type RateSelectorListProps = {
+  onClick: (rate: number) => void;
+  selectedRate?: number;
+  error: string;
+};
+const RateSelectorList = ({
+  onClick,
+  selectedRate,
+  error,
+}: RateSelectorListProps) => {
   return (
-    <div className="flex space-x-200">
-      {Array.from({ length: 5 }, (_, num) => (
-        <RateSelector
-          key={num}
-          className="size-[42px]"
-          num={num}
-          isSelect={true}
-        />
-      ))}
-    </div>
+    <>
+      <div className="flex justify-between">
+        {Array.from({ length: 5 }, (_, num) => (
+          <button
+            onClick={() => onClick(num)}
+            key={num}
+            role="radio"
+            type="button"
+            aria-checked={selectedRate === num}
+            aria-label={`rate ${selectedRate} points`}
+          >
+            <RateSelector
+              className="size-[42px]"
+              num={num}
+              isSelect={selectedRate === num}
+            />
+          </button>
+        ))}
+      </div>
+      {error && <p>{error}</p>}
+    </>
+  );
+};
+
+const RatingForm = () => {
+  const { onSubmit, changeSelectedButton, formState, error } = useRatingForm();
+
+  return (
+    <form className="space-y-300" action={onSubmit}>
+      <RateSelectorList
+        onClick={changeSelectedButton}
+        selectedRate={formState.rating}
+        error={error}
+      />
+      <Button className="w-full" type="submit">
+        submit
+      </Button>
+    </form>
   );
 };
 
@@ -39,11 +79,8 @@ const InteractiveRatingCard = () => {
             feedback is appreciated to help us improve our offering!
           </p>
         </CardDescription>
-        <RateSelectorList />
+        <RatingForm />
       </CardContent>
-      <CardAction>
-        <Button className="w-full">submit</Button>
-      </CardAction>
     </Card>
   );
 };
