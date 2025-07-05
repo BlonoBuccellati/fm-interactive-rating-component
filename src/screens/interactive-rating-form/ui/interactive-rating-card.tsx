@@ -82,7 +82,7 @@ const InteractiveRatingCard = () => {
                 error={props.error}
               />
               <Button className="w-full" type="submit">
-                <span>submit</span>
+                submit
               </Button>
             </form>
           )}
