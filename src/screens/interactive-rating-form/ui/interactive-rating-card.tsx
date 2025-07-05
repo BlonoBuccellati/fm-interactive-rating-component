@@ -25,7 +25,11 @@ const RateSelectorList = ({
 }: RateSelectorListProps) => {
   return (
     <>
-      <div className="flex justify-between">
+      <div
+        className="flex justify-between"
+        role="radiogroup"
+        arial-label="Rating selector"
+      >
         {Array.from({ length: 5 }, (_, num) => (
           <button
             onClick={() => onClick(num)}
