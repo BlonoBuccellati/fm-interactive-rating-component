@@ -36,7 +36,7 @@ const RateSelectorList = ({
             aria-label={`rate ${selectedRate} points`}
           >
             <RateSelector
-              className="size-[42px]"
+              className="tablet:size-[51px] size-[42px]"
               num={num}
               isSelect={selectedRate === num}
             />
@@ -59,13 +59,15 @@ const RatingForm = ({ children }: RatingFormProps) => {
 
 const InteractiveRatingCard = () => {
   return (
-    <Card className="w-full space-y-300">
+    <Card className="tablet:space-y-400 w-full space-y-300">
       <CardHeader>
         <StarIcon />
       </CardHeader>
       <CardContent className="space-y-200">
-        <CardTitle className="typo-2 text-white">How did we do?</CardTitle>
-        <CardDescription className="typo-5-regular">
+        <CardTitle className="typo-2 tablet:typo-1 text-white">
+          How did we do?
+        </CardTitle>
+        <CardDescription className="typo-5-regular tablet:typo-4-regular">
           <p>
             Please let us know how we did with your support request. All
             feedback is appreciated to help us improve our offering!
@@ -73,14 +75,17 @@ const InteractiveRatingCard = () => {
         </CardDescription>
         <RatingForm>
           {(props) => (
-            <form className="space-y-300" action={props.onSubmit}>
+            <form
+              className="tablet:space-y-400 space-y-300"
+              action={props.onSubmit}
+            >
               <RateSelectorList
                 onClick={props.changeSelectedButton}
                 selectedRate={props.formState.rating}
                 error={props.error}
               />
               <Button className="w-full" type="submit">
-                submit
+                <span>submit</span>
               </Button>
             </form>
           )}

@@ -9,10 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-orange-500 text-grey-950 typo-5-bold",
+        default:
+          "bg-orange-500 text-grey-950 typo-5-bold tablet:typo-5-semibold",
       },
       size: {
-        default: "px-1300 py-200",
+        default: "px-1300 py-200 tablet:py-[10px]",
       },
     },
     defaultVariants: {
