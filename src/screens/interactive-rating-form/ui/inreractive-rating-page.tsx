@@ -16,13 +16,13 @@ const InteractiveRatingPage = () => {
     setIsSubmitted(true);
   };
   return (
-    <div className="flex min-h-screen items-center">
+    <main className="flex min-h-screen items-center">
       <SubmitContext.Provider
         value={{ onSubmitSuccess: handleSuccess, submittedRating }}
       >
         {!isSubmitted ? <InteractiveRatingCard /> : <Submitted />}
       </SubmitContext.Provider>
-    </div>
+    </main>
   );
 };
 
