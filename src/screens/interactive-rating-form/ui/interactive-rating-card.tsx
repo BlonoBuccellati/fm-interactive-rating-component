@@ -30,22 +30,25 @@ const RateSelectorList = ({
         role="radiogroup"
         arial-label="Rating selector"
       >
-        {Array.from({ length: 5 }, (_, num) => (
-          <button
-            onClick={() => onClick(num)}
-            key={num}
-            role="radio"
-            type="button"
-            aria-checked={selectedRate === num}
-            aria-label={`rate ${selectedRate} points`}
-          >
-            <RateSelector
-              className="size-[clamp(2.625rem,2.088rem+2.29vw,3.188rem)]"
-              num={num}
-              isSelect={selectedRate === num}
-            />
-          </button>
-        ))}
+        {Array.from({ length: 5 }, (_, num) => {
+          const rate = num + 1;
+          return (
+            <button
+              onClick={() => onClick(rate)}
+              key={rate}
+              role="radio"
+              type="button"
+              aria-checked={selectedRate === rate}
+              aria-label={`rate ${selectedRate} points`}
+            >
+              <RateSelector
+                className="size-[clamp(2.625rem,2.088rem+2.29vw,3.188rem)]"
+                num={rate}
+                isSelect={selectedRate === rate}
+              />
+            </button>
+          );
+        })}
       </div>
       {error && <p>{error}</p>}
     </>
