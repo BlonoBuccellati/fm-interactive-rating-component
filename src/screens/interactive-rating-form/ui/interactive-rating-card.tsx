@@ -75,10 +75,8 @@ const InteractiveRatingCard = () => {
           How did we do?
         </CardTitle>
         <CardDescription className="typo-5-regular tablet:typo-4-regular">
-          <p>
-            Please let us know how we did with your support request. All
-            feedback is appreciated to help us improve our offering!
-          </p>
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
         </CardDescription>
         <RatingForm>
           {(props) => (

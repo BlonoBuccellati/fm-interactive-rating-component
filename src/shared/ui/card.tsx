@@ -1,10 +1,16 @@
+import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
 
 import { cn } from "@/shared/lib/utils";
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+function Card({
+  asChild = false,
+  className,
+  ...props
+}: React.ComponentProps<"section"> & { asChild?: boolean }) {
+  const Comp = asChild ? Slot : "section";
   return (
-    <div
+    <Comp
       data-slot="card"
       className={cn(
         "from-gradient-grey-1 to-gradient-grey-2 py-sm-300-to-md-400 mx-auto max-w-[clamp(20.438rem,15.368rem+21.63vw,25.75rem)] rounded-[clamp(0.938rem,0.043rem+3.82vw,1.875rem)] bg-gradient-to-b px-300 text-white",
@@ -28,9 +34,14 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+function CardTitle({
+  asChild = false,
+  className,
+  ...props
+}: React.ComponentProps<"h1"> & { asChild?: boolean }) {
+  const Comp = asChild ? Slot : "h1";
   return (
-    <div
+    <Comp
       data-slot="card-title"
       className={cn("leading-none font-semibold", className)}
       {...props}
@@ -38,11 +49,11 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function CardDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
-    <div
+    <p
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-muted-foreground", className)}
       {...props}
     />
   );
