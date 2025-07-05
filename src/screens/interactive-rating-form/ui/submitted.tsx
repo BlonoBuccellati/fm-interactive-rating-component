@@ -9,7 +9,7 @@ import { useSubmit } from "../context/submit-context";
 
 const Message = () => {
   return (
-    <div className="space-y-300 text-center">
+    <div className="space-y-200 text-center">
       <p className="typo-1">Thank you!</p>
       <p className="typo-4-regular text-grey-500">
         We appreciate you taking the time to give a rating. If you ever need
