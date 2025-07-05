@@ -11,7 +11,7 @@ import {
 import RateSelector from "@/shared/ui/rate-selector";
 import StarIcon from "@/shared/ui/star-icon";
 
-import { useRatingForm } from "../hooks/use-rating-form";
+import { useRatingForm, UseRatingFormType } from "../hooks/use-rating-form";
 
 type RateSelectorListProps = {
   onClick: (rate: number) => void;
@@ -48,21 +48,13 @@ const RateSelectorList = ({
   );
 };
 
-const RatingForm = () => {
-  const { onSubmit, changeSelectedButton, formState, error } = useRatingForm();
+type RatingFormProps = {
+  children: (props: UseRatingFormType) => React.ReactNode;
+};
+const RatingForm = ({ children }: RatingFormProps) => {
+  const props = useRatingForm();
 
-  return (
-    <form className="space-y-300" action={onSubmit}>
-      <RateSelectorList
-        onClick={changeSelectedButton}
-        selectedRate={formState.rating}
-        error={error}
-      />
-      <Button className="w-full" type="submit">
-        submit
-      </Button>
-    </form>
-  );
+  return children(props);
 };
 
 const InteractiveRatingCard = () => {
@@ -79,7 +71,20 @@ const InteractiveRatingCard = () => {
             feedback is appreciated to help us improve our offering!
           </p>
         </CardDescription>
-        <RatingForm />
+        <RatingForm>
+          {(props) => (
+            <form className="space-y-300" action={props.onSubmit}>
+              <RateSelectorList
+                onClick={props.changeSelectedButton}
+                selectedRate={props.formState.rating}
+                error={props.error}
+              />
+              <Button className="w-full" type="submit">
+                submit
+              </Button>
+            </form>
+          )}
+        </RatingForm>
       </CardContent>
     </Card>
   );

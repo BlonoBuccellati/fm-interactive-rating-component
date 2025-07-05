@@ -44,3 +44,5 @@ export const useRatingForm = () => {
 
   return { error, onSubmit, changeSelectedButton, formState };
 };
+
+export type UseRatingFormType = ReturnType<typeof useRatingForm>;
