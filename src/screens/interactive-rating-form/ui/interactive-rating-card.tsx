@@ -59,7 +59,7 @@ const RatingForm = ({ children }: RatingFormProps) => {
 
 const InteractiveRatingCard = () => {
   return (
-    <Card className="space-y-sm-300-to-400 w-full">
+    <Card className="space-y-sm-300-to-md-400 w-full">
       <CardHeader>
         <StarIcon />
       </CardHeader>
