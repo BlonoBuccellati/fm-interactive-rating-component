@@ -22,7 +22,7 @@ const Message = () => {
 const Submitted = () => {
   const { submittedRating } = useSubmit();
   return (
-    <Card className="tablet:px-400 tablet:py-500 tablet:space-y-400 flex flex-col items-center space-y-300 px-300 py-400">
+    <Card className="scroll-px-sm-300-to-md-400 py-sm-400-to-md-500 space-y-sm-300-to-md-400 flex flex-col items-center">
       <Image
         src={iconThankYou}
         alt=""
